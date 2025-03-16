@@ -2,84 +2,98 @@
 
 Project Overview
 
-This project analyzes customer loyalty program data for a supermarket chain to understand purchasing behavior and factors affecting customer spending. The analysis helps in predicting customer retention and optimizing promotional strategies.
+International Essentials is a global supermarket chain that offers a loyalty program to its customers. This program provides rewards based on annual spending, where higher spending results in bigger rewards. The supermarket aims to predict customer spending in order to estimate the cost of rewards and forecast potential profits.
 
 Dataset Overview
 
-The project uses multiple datasets, including:
+The dataset contains records of customers for their last full year in the loyalty program. The key objective is to analyze spending patterns and determine which factors influence customer spending behavior.
 
-loyalty.csv: Contains customer spending, first purchase details, regional information, and promotional data.
+Data Fields
 
-train.csv: Training data for predictive modeling, includes spending patterns and loyalty duration.
+Column Name
 
-test.csv: Data used for testing model performance.
+Type
 
-validation_loyalty.csv: Used for model validation.
+Description
 
-Key Features in the Dataset:
+customer_id
 
-customer_id: Unique identifier for each customer.
+Integer
 
-spend: Total amount spent.
+Unique identifier for each customer. No missing values.
 
-first_month: Spending amount in the first month.
+spend
 
-items_in_first_month: Number of items purchased in the first month.
+Continuous
 
-region: Customer's geographical location.
+Total amount spent by the customer in their last full year (two decimal places). Missing values replaced with 0.
 
-loyalty_years: Years the customer has been in the loyalty program (categorized).
+first_month
 
-joining_month: Month the customer joined the program.
+Continuous
 
-promotion: Indicates whether the customer was part of a promotional campaign.
+Amount spent by the customer in the first month of the year (rounded to two decimal places). Missing values replaced with 0.
+
+items_in_first_month
+
+Discrete
+
+Number of items purchased in the first month. Any integer ≥ 0. Missing values replaced with 0.
+
+region
+
+Nominal
+
+Customer's geographic region (Americas, Asia/Pacific, Europe, Middle East/Africa). Missing values replaced with Unknown.
+
+loyalty_years
+
+Ordinal
+
+Number of years the customer has been part of the loyalty program (0-1, 1-3, 3-5, 5-10, 10+). Missing values replaced with 0-1.
+
+joining_month
+
+Nominal
+
+Month the customer joined (Jan, Feb, ..., Dec). Missing values replaced with Unknown.
+
+promotion
+
+Nominal
+
+Indicates whether the customer joined the program as part of a promotion (Yes or No). Missing values replaced with No.
+
+Problems to Solve
+
+Predict Customer Spending: Develop a model to estimate how much a customer is likely to spend in the loyalty program.
+
+Identify Key Spending Factors: Determine which factors (e.g., region, loyalty years, promotions) most influence total spending.
+
+Improve Customer Retention: Use insights to optimize loyalty rewards and promotional strategies.
 
 Tools & Techniques Used
 
-Data Cleaning & Preprocessing
+Data Cleaning & Preprocessing: Handling missing values, categorical encoding, and data transformation.
 
-Handled missing values using pandas.
+Exploratory Data Analysis (EDA): Understanding spending trends and customer behavior.
 
-Converted categorical variables to ordered categories.
+Feature Engineering: Extracting meaningful features from available data.
 
-Standardized inconsistent entries (e.g., promotion values standardized to 'Yes' or 'No').
-
-Exploratory Data Analysis (EDA)
-
-Summary statistics and unique value counts.
-
-Data type conversion for better processing.
-
-Feature Engineering
-
-Created categorical ordering for loyalty_years.
-
-Extracted insights based on spending patterns across regions and promotions.
-
-Predictive Modeling (if applicable)
-
-The dataset structure allows for potential customer retention modeling using regression or classification.
-
-Key Insights
-
-Customers with higher loyalty years tend to spend more.
-
-Customers in certain regions show higher spending trends.
-
-Promotional campaigns have a mixed impact on customer retention.
+Predictive Modeling: Building models to forecast customer spending and loyalty retention.
 
 How to Use
 
-Load the datasets: Ensure the provided CSV files are in the working directory.
+Load the datasets: Ensure the CSV files are in the working directory.
 
 Run the Jupyter Notebook: Open notebook.ipynb and execute all cells.
 
-Explore insights: The notebook will display data summaries, visualizations, and potential model predictions.
+Analyze Results: Explore the findings and predictions for customer loyalty.
 
 Future Improvements
 
-Implement predictive modeling to classify loyal vs. non-loyal customers.
+Implement machine learning models for customer segmentation.
 
-Visualize spending patterns using matplotlib/seaborn.
+Improve data visualizations for better insights.
 
-Integrate more customer demographics for enhanced analysis.
+Integrate external factors like promotions or seasonality into the analysis.
